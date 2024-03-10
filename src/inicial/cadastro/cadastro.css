@@ -1,0 +1,15 @@
+*{
+    transition: all .5s;
+}  
+#divSenhaL{
+    min-height: 50px;  
+}
+#divForcaL{
+    width: 85%;
+    height: 25px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}   
+ 

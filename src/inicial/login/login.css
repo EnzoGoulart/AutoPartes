@@ -1,0 +1,62 @@
+#loginMain{ 
+    width: 90%;
+    max-width: 400px; 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--Secondary);
+    border-radius: 12px;
+}
+
+#txtLogo{ 
+    font-family: 'Julius Sans One';
+    font-size: 24px;
+    color: var(--Theme);  
+    text-align: center;
+}
+
+.labelLogin{
+    font-size: 16px;
+    color: var(--Theme);
+    padding-left: 10%
+}
+
+.inputLogin{ 
+    width: calc(75% - 20px);
+    height: 25px;
+    margin-left: 7%;
+    border-radius: 12px;
+    padding-left: 20px;
+    display: block;
+}
+ 
+#btnLogin{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 30px; 
+    width: 120px;
+    height: 40px; 
+    border-radius: 12px;
+    background-color: var(--SecondaryLess);
+    font-size: 16px;
+    color: var(--Theme);  
+}
+
+#btnLogin:hover{
+    background-color: var(--SecondaryLessHover);
+    width: 150px;
+}
+
+#cadastreLogin, #txtLink{
+  text-decoration: none;
+  color: var(--Theme);
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#txtLink{
+    font-weight: bold;
+}
