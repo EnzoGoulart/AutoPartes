@@ -5,6 +5,7 @@ import Login from '../inicial/login';
 import Cadastro from '../inicial/cadastro';
 import Public from "./public";
 import Home from "../pages/home";
+import Profile from "../pages/profile";
 
 const RoutesComponent = () => {
    return(
@@ -12,6 +13,7 @@ const RoutesComponent = () => {
            <Route element={<Public><Login /></Public>} path="/" exact /> 
            <Route element={<Public><Cadastro /></Public>} path="/cadastro" /> 
            <Route element={<Home />} path="/home" /> 
+           <Route element={<Profile />} path="/profile" /> 
        </Routes>
    )
 }

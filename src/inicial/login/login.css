@@ -14,18 +14,21 @@
     font-size: 24px;
     color: var(--Theme);  
     text-align: center;
+    padding: 15px 0px;
 }
 
 .labelLogin{
+    padding-bottom: 10px;
     font-size: 16px;
     color: var(--Theme);
     padding-left: 10%
 }
 
 .inputLogin{ 
-    width: calc(75% - 20px);
+    margin-bottom: 15px;
     height: 25px;
     margin-left: 7%;
+    width: 75%;
     border-radius: 12px;
     padding-left: 20px;
     display: block;
@@ -35,7 +38,7 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 30px; 
+    margin-top: 10px; 
     width: 120px;
     height: 40px; 
     border-radius: 12px;

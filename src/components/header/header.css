@@ -1,0 +1,26 @@
+#header {
+    display: flex;
+    height: 50px;
+    background-color: var(--Secondary);
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px; 
+}
+
+#txtLogoH{
+    font-family: 'Julius Sans One';
+    font-size: 20px;
+    color: var(--Theme);  
+    text-align: center;
+    margin-left: 10%;
+}
+
+#divIconsH{
+    color: var(--Theme);
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    margin-right: 10%;
+}
