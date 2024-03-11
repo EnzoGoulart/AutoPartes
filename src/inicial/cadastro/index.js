@@ -1,22 +1,25 @@
 import './cadastro.css'
 import '../login/login.css'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";  
 import { Forca1, Forca2, Forca3, Forca4, Forca5, TxtDivSenha } from "./styledCadastro";
+import { Context } from '../../context/context';
+import { setSessionCookie } from '../../functions/cookies';
 export default function Cadastro() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [txt, setTxt] = useState("");
   const [loading, setLoading] = useState(false);
-  const [username, setUsername] = useState(""); 
+  const [nome, setNome] = useState(""); 
   const [bar1, setBar1] = useState("");
   const [bar2, setBar2] = useState("");
   const [bar3, setBar3] = useState("");
   const [bar4, setBar4] = useState("");
   const [bar5, setBar5] = useState("");
   const [barAt, setBarAt] = useState("");
+  const { user, setUser } = useContext(Context);
 
   function VerificarSenha( senha ) {
      
@@ -91,15 +94,15 @@ export default function Cadastro() {
     }
     
   }
-  async function cadastrar() { 
+  async function Cadastrar() { 
 
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     let emailValid = true
     if(!regex.test(email)){
       emailValid = false
     } 
-    if (!emailValid || username.length < 4 || senha.length < 6 || senha.length > 20) {
-      if (username.length < 4) {
+    if (!emailValid || nome.length < 4 || senha.length < 6 || senha.length > 20) {
+      if (nome.length < 4) {
         return toast.error("Nome deve conter pelo menos 4 caracteres");
       } 
       if (!emailValid) {
@@ -114,14 +117,44 @@ export default function Cadastro() {
       return toast.error("Há dados inválidos, corrija-os");
     }
 
-    toast.success('Cadastrado com sucesso!')
+    try {
+        const response = await fetch("http://localhost:3001/api/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, senha, nome }),
+      });
+
+      if (response.ok) {
+          const data = await response.json() 
+          if(data.created == true) {
+              toast.success('Cadastrado com sucesso!')
+              setUser({
+                  nome,
+                  senha,
+                  email
+              }) 
+              setSessionCookie("session", JSON.stringify({email, nome}) , 30);
+              navigate('/home')
+          } else if(data.created == false && data.jaExiste == true) {
+              toast.error("Usuário já cadastrado, faça login!")
+          } else if(data.created == false && data.jaExiste == false) {
+              toast.error("Erro no servidor, tente mais tarde.")
+          }
+      } else {
+          toast.error("Erro no servidor, tente mais tarde.") 
+      }
+    } catch (error) {
+      toast.error("Erro no servidor, tente mais tarde.") 
+    }
 }
   return (
     <div id="container">
         <div id="loginMain">
             <p id="txtLogo">AutoPartes</p>
             <p className="labelLogin">Nome</p>
-            <input className="inputLogin" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input className="inputLogin" type="text" value={nome} onChange={(e) => setNome(e.target.value)}/>
             <p className="labelLogin">Email</p>
             <input className="inputLogin" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <p className="labelLogin">Senha</p>
@@ -138,7 +171,7 @@ export default function Cadastro() {
                     </div>
                 </div>
             )}
-            <button id="btnLogin" onClick={() => cadastrar()}>Cadastrar</button>
+            <button id="btnLogin" onClick={() => Cadastrar()}>Cadastrar</button>
             <p id="cadastreLogin">Já tem uma conta? <Link id="txtLink" to="/">Faça o login!</Link></p>
         </div>
     </div>
