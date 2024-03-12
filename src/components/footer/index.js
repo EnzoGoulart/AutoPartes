@@ -6,10 +6,10 @@ export default function Footer() {
     const navigate = useNavigate()
   return (
     <div id="footer">
-        <i class="fa-solid fa-plus" onClick={() => navigate('/create')} ></i>
-        <i class="fa-solid fa-house" onClick={() => navigate('/home')} ></i>
-        <i class="fa-solid fa-cart-shopping" onClick={() => navigate('/cart')} ></i>
-        <i class="fa-regular fa-user" onClick={() => navigate('/profile')} ></i>
+        <i className="fa-solid fa-plus" onClick={() => navigate('/create')} ></i>
+        <i className="fa-solid fa-house" onClick={() => navigate('/home')} ></i>
+        <i className="fa-solid fa-cart-shopping" onClick={() => navigate('/cart')} ></i>
+        <i className="fa-regular fa-user" onClick={() => navigate('/profile')} ></i>
     </div>
   );
 }

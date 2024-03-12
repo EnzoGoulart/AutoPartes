@@ -9,7 +9,7 @@ export default function Header() {
     <div id="header">
       <p id="txtLogoH">AutoPartes</p>
       <div id="divIconsH"> 
-        <i id="iconCommentH" class="fa-solid fa-comment" onClick={() => navigate("/support")}></i>
+        <i id="iconCommentH" className="fa-solid fa-comment" onClick={() => navigate("/support")}></i>
         <i id="iconConfigH" className="fa-solid fa-gear" onClick={() => navigate("/config")}></i>
       </div>
     </div>

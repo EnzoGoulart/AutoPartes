@@ -11,7 +11,7 @@ export default function Public({ children }) {
   useEffect(() => {
     let session = getCookie("session");
     if (session) {
-      session = JSON.parse(session)
+      session = JSON.parse(session); 
       const fetchData = async () => {
         try {
           const response = await fetch(
@@ -21,13 +21,13 @@ export default function Public({ children }) {
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify({ email: session.email }),
+              body: JSON.stringify({ email: session.email, nome: session.nome, senha: session.senha }),
             }
           );
 
           if (response.ok) {
             const data = await response.json();
-        
+
             if (data.login) {
               setUser({
                 nome: session.nome,
@@ -57,6 +57,6 @@ export default function Public({ children }) {
     return children;
   } else if (returnFun === 1) {
     navigate("/home");
-    return null; // Evitar renderização de children se redirecionado
+    return null;  
   }
 }

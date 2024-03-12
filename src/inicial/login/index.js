@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { toast } from "react-toastify";
 import { Context } from "../../context/context";
-import { getCookie, setSessionCookie } from "../../functions/cookies";
+import { setSessionCookie } from "../../functions/cookies";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export default function Login() {
           });
           setSessionCookie(
             "session",
-            JSON.stringify({ email, nome: data.nome }),
+            JSON.stringify({ email, nome: data.nome, senha: data.senha }),
             30
           );
           navigate("/home");
@@ -47,7 +47,7 @@ export default function Login() {
       toast.error("Erro no servidor, tente mais tarde.");
     }
   }
- 
+
   return (
     <div id="container">
       <div id="loginMain">

@@ -1,6 +1,6 @@
 import './cadastro.css'
 import '../login/login.css'
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";  
 import { Forca1, Forca2, Forca3, Forca4, Forca5, TxtDivSenha } from "./styledCadastro";
@@ -135,7 +135,7 @@ export default function Cadastro() {
                   senha,
                   email
               }) 
-              setSessionCookie("session", JSON.stringify({email, nome}) , 30);
+              setSessionCookie("session", JSON.stringify({email, nome, senha: data.senha}) , 30);
               navigate('/home')
           } else if(data.created == false && data.jaExiste == true) {
               toast.error("Usuário já cadastrado, faça login!")

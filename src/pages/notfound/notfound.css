@@ -1,0 +1,20 @@
+.btnGenerico404 {
+    margin: 15px auto; 
+    width: 120px;
+    height: 40px; 
+    border-radius: 12px;
+    background-color: var(--Theme);
+    font-size: 16px;
+    color: var(--Secondary);  
+    display: block;
+}  
+
+#txtLink404 {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--Secondary);
+    width: 80%;
+    margin: 20px auto;
+    text-align: center; 
+    font-family: 'Inter', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

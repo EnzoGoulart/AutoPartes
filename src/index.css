@@ -15,7 +15,7 @@ input{
   border: none;
 }
 
-p{
+p, Link{
   text-decoration: none;
   font-family: 'Inter';
 } 
@@ -24,3 +24,13 @@ p{
   padding: 0;
   margin: 0
 }
+
+i {
+  cursor: pointer;
+}
+
+i:hover{
+  transition: all 0.2s;
+  color: var(--Background);
+  transform: translateY(-2px);
+} 
