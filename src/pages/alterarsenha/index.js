@@ -141,8 +141,7 @@ export default function AlterarSenha() {
           return toast.error("Não foi possivel continuar!")
         } else if( data.resposta == 0) {
           return toast.error("Senha inválida!")
-        } else if( data.resposta == 1) { 
-          console.log(data.senhaNova)
+        } else if( data.resposta == 1) {  
           setUser({
             ...user,
             senha: data.senhaNova, 

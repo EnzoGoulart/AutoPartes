@@ -9,6 +9,7 @@ import Profile from "../pages/profile";
 import Private from "./private";
 import NotFound from "../pages/notfound";
 import AlterarSenha from "../pages/alterarsenha";
+import CriarPost from "../pages/criarpost";
 
 const RoutesComponent = () => {
    return(
@@ -18,6 +19,7 @@ const RoutesComponent = () => {
            <Route element={<Private><Home /></Private>} path="/home" /> 
            <Route element={<Private><Profile /></Private>} path="/profile" /> 
            <Route element={<Private><AlterarSenha /></Private>} path="/alterarsenha" /> 
+           <Route element={<Private><CriarPost /></Private>} path="/create" /> 
            <Route element={<NotFound />} path="/*" /> 
        </Routes>
    )

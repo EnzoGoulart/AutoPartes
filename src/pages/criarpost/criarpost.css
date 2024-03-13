@@ -1,0 +1,189 @@
+.mainRolagem {
+    background-color: var(--Theme);
+    width: 95%;
+    border-radius: 12px;
+    margin: 10px auto 60px auto;
+}
+
+.divImgsCP { 
+    width: 78%;
+    position: relative; 
+    left: 8%; 
+}
+
+.divInputsCP { 
+    width: 70%;
+    position: absolute; 
+    transform: translateY(-100%);
+    left: 8%;   
+}
+
+.divImgCP {   
+    display: flex;
+    justify-content: space-between;
+}
+
+.divInputImgCP {
+    width: 93%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+} 
+
+.divImgCP:not(:first-child), .divInputImgCP:not(:first-child) {
+    margin-top: 30px;
+}
+
+.imgCP {
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+}
+
+.divTrashCP:first-child {
+    margin-top: 2px;
+    margin-left: -3px;
+}
+
+.divTrashCP:nth-of-type(2) { 
+    margin-top: 3px;
+    margin-right: -3px;
+}
+
+.divTrashCP { 
+    max-width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; 
+    cursor: pointer;
+    z-index: 6;  
+    opacity: 0.6;  
+}
+
+.divTrashCP:hover {
+    transition: all 0.3s;
+    opacity: 1; 
+}
+
+.trashCP {
+    width: 35px;
+    height: 35px;
+    color: var(--Red);
+}
+ 
+.inputImgCP { 
+    width: 110px;
+    height: 110px;
+    border-radius: 12px; 
+    z-index: 5;
+    opacity: 0; 
+}
+
+.lblCP {
+  padding: 15px 0px 15px 10%;
+  font-size: 16px;
+  color: var(--Text);
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+} 
+
+.lblTxtCP,
+.lblDesCP {
+  padding: 30px 0px 10px 10%;
+  font-size: 16px;
+  color: var(--Text);
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lblDesCP {
+  margin-top: -15px;
+} 
+
+.inputCP {
+  height: 35px;
+  margin-left: 7%;
+  width: 70%;
+  border-radius: 12px;
+  padding: 8px 20px;
+  display: block;
+  border: 2px solid rgba(0, 0, 0, 0.267);
+  outline: none;
+  resize: none;
+}
+
+.selCP {
+    height: 35px;
+    margin-left: 7%;
+    width: calc(70% + 44px);
+    border-radius: 12px;
+    padding: 8px 20px;
+    display: block;
+    border: 2px solid rgba(0, 0, 0, 0.267);
+    outline: none;
+    resize: none; 
+}
+
+.descriCP {
+  height: 250px;
+  margin-left: 7%;
+  width: 70%;
+  border-radius: 12px;
+  padding: 0px 20px;
+  display: block;
+  border: 2px solid rgba(0, 0, 0, 0.267);
+  outline: none;
+  resize: none;
+}
+
+#divBtnCadCP { 
+    margin: 25px auto ;
+    height: 70px;
+}
+
+#btnCadCP { 
+  margin: auto;
+  width: 120px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: var(--Secondary);
+  font-size: 16px;
+  color: var(--Theme);
+  display: block;
+}
+
+@media screen and (max-width: 425px) {
+    .divImgsCP, .divInputsCP, .divTrashCP {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 525px) {
+    .divImgsCP, .divInputsCP, .divTrashCP {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+@media screen and (min-width: 526px) and (max-width: 650px) {
+    .divImgsCP, .divInputsCP, .divTrashCP {
+        width: 70%;
+        left: 15%;
+    }
+}
+
+@media screen and (min-width: 651px) and (max-width: 800px) {
+    .divImgsCP, .divInputsCP, .divTrashCP {
+        width: 60%;
+        left: 20%;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    .divImgsCP, .divInputsCP, .divTrashCP {
+        width: 50%;
+        left: 25%;
+    }
+}

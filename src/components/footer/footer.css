@@ -7,7 +7,7 @@
     justify-content: space-between;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;  
-    position: absolute;
+    position: fixed;
     top: 100%;  
     transform: translateY(-100%);
     color: var(--Theme);

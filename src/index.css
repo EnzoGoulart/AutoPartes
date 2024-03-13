@@ -15,7 +15,7 @@ input{
   border: none;
 }
 
-p, Link{
+p, Link, textarea{
   text-decoration: none;
   font-family: 'Inter';
 } 
