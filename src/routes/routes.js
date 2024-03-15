@@ -10,6 +10,7 @@ import Private from "./private";
 import NotFound from "../pages/notfound";
 import AlterarSenha from "../pages/alterarsenha";
 import CriarPost from "../pages/criarpost";
+import DicaCriarPost from "../pages/dicacriarpost";
 
 const RoutesComponent = () => {
    return(
@@ -20,6 +21,7 @@ const RoutesComponent = () => {
            <Route element={<Private><Profile /></Private>} path="/profile" /> 
            <Route element={<Private><AlterarSenha /></Private>} path="/alterarsenha" /> 
            <Route element={<Private><CriarPost /></Private>} path="/create" /> 
+           <Route element={<Private><DicaCriarPost /></Private>} path="/dicas/create" /> 
            <Route element={<NotFound />} path="/*" /> 
        </Routes>
    )

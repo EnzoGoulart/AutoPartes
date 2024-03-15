@@ -6,16 +6,20 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/context";
 import Plus from "../../imagens/plus.png";
 import { toast } from "react-toastify";
-import { retornaCategorias, retornaEstados, retornaFretes } from "../../functions/return";
+import {
+  retornaCategorias,
+  retornaEstados,
+  retornaFretes,
+} from "../../functions/return";
 import Loading from "../../components/loading";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faLightbulb, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function CriarPost() {
   const navigate = useNavigate();
   const [titlePost, setTitlePost] = useState("");
   const [corPost, setCorPost] = useState("");
-  const [skuPost, setSkuPost] = useState('');
+  const [skuPost, setSkuPost] = useState("");
   const [loading, setLoading] = useState(true);
   const [descriPost, setDescriPost] = useState("");
   const [images, setImages] = useState([]);
@@ -56,16 +60,16 @@ export default function CriarPost() {
     setImages(newImages);
   }
 
-  function validarSKU(sku) {   
+  function validarSKU(sku) {
     const regex = /^[A-Z0-9-]+$/;
     if (!regex.test(sku) || sku.length !== 8) {
-      return false; 
-    } 
+      return false;
+    }
 
     return true;
   }
 
-  async function cadastrarPost() {  
+  async function cadastrarPost() {
     if (images.length == 0) {
       return toast.error("Nenhuma imagem cadastrada!");
     } else if (images.length > 4) {
@@ -83,11 +87,11 @@ export default function CriarPost() {
       return toast.error("Sem cores cadastradas!");
     } else if (corPost.length > 90) {
       return toast.error("Campo cor excedeu o limite de caracteres!");
-    } else if(!validarSKU(skuPost) && skuPost != "") {
-      return toast.error("SKU inválido!")
+    } else if (!validarSKU(skuPost) && skuPost != "") {
+      return toast.error("SKU inválido!");
     }
-    try{   
-      setLoading(true)
+    try {
+      setLoading(true);
       const response = await fetch("http://localhost:3001/api/createpostitem", {
         method: "POST",
         headers: {
@@ -102,20 +106,20 @@ export default function CriarPost() {
           corPost,
           skuPost,
           catSel,
-          conSel, 
+          conSel,
           freSel,
         }),
       });
 
-      if(response.ok) { 
-        navigate('/meusposts')
-        return toast.success("Post criado!"); 
+      if (response.ok) {
+        navigate("/meusposts");
+        return toast.success("Post criado!");
       }
-    } catch(e) {
+    } catch (e) {
       toast.error("Erro inesperado!");
-      console.log(e)
-    } finally{
-      setLoading(false)
+      console.log(e);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -129,7 +133,18 @@ export default function CriarPost() {
   return (
     <div id="container">
       <Header />
+      <a id="dicascreate" href="/dicas/create" target="_blank"></a>
       <div className="mainRolagem">
+        <div className="divDebugBtnCP">
+          <button
+            onClick={() => document.getElementById("dicascreate").click()}
+            className="btnHintCP"
+          >
+            <FontAwesomeIcon className="hintCP" icon={faLightbulb} /> Como fazer
+            um bom anúncio?
+          </button>
+        </div>
+
         <p className="lblCP">Adicionar imagens - {images.length}/4</p>
 
         <div className="divImgsCP">
@@ -240,21 +255,39 @@ export default function CriarPost() {
         />
 
         <p className="lblDesCP">Categoria</p>
-        <select className="selCP" id="selectCategoriaCP" onChange={e=>setCatSel(e.target.value)}>
+        <select
+          className="selCP"
+          id="selectCategoriaCP"
+          onChange={(e) => setCatSel(e.target.value)}
+        >
           {categorias.map((cat) => (
-            <option value={cat.id} key={cat.id}>{cat.descri}</option>
+            <option value={cat.id} key={cat.id}>
+              {cat.descri}
+            </option>
           ))}
         </select>
         <p className="lblDesCP">Condição</p>
-        <select className="selCP" id="selectCondicaoCP" onChange={e=>setConSel(e.target.value)}>
+        <select
+          className="selCP"
+          id="selectCondicaoCP"
+          onChange={(e) => setConSel(e.target.value)}
+        >
           {estados.map((cat) => (
-            <option value={cat.id} key={cat.id}>{cat.descri}</option>
+            <option value={cat.id} key={cat.id}>
+              {cat.descri}
+            </option>
           ))}
         </select>
         <p className="lblDesCP">Frete</p>
-        <select className="selCP" id="selectCondicaoCP" onChange={e=>setFreSel(e.target.value)}>
-          {fretes.map((cat) => ( 
-            <option value={cat.id} key={cat.id}>{cat.descri}</option> 
+        <select
+          className="selCP"
+          id="selectCondicaoCP"
+          onChange={(e) => setFreSel(e.target.value)}
+        >
+          {fretes.map((cat) => (
+            <option value={cat.id} key={cat.id}>
+              {cat.descri}
+            </option>
           ))}
         </select>
         <div id="divBtnCadCP">

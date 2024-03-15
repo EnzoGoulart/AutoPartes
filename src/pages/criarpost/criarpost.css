@@ -1,9 +1,18 @@
-.mainRolagem {
-    background-color: var(--Theme);
-    width: 95%;
-    border-radius: 12px;
-    margin: 10px auto 60px auto;
+.divDebugBtnCP{
+    padding-top: 15px; 
 }
+
+.btnHintCP {  
+    margin: 0px 0px 0px 7%;
+    width: 220px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--Secondary);
+    font-size: 14px;
+    color: var(--Theme);
+    display: block;
+    opacity: 0.9;
+  }
 
 .divImgsCP { 
     width: 78%;
@@ -186,4 +195,8 @@
         width: 50%;
         left: 25%;
     }
+}
+
+#dicascreate{
+    display: none;
 }

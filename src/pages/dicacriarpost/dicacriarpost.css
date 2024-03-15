@@ -1,0 +1,41 @@
+.titleDCP {
+  text-align: center;
+  padding: 0px 0px 15px 0px;
+}
+
+.subtitleDCP {
+  padding: 10px 0px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.textoDCP {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.txtBoldDCP {
+  font-weight: bold;
+}
+
+.paddingDCP {
+  height: 15px;
+}
+
+.btnVoltarDCP {
+  width: 100%;
+  height: 50px;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  border-radius: 12px;
+  background-color: var(--Secondary);
+  font-size: 16px;
+  color: var(--Theme);
+  display: block;
+}
+
+.finalDCP {
+  text-align: center;
+  padding: 15px 0px;
+}

@@ -150,7 +150,7 @@ export default function Profile() {
   return (
     <div id="container">
       <Header /> 
-      <div id="mainProfile">
+      <div className="mainRolagem">
         <p id="h1P">Perfil</p>
         <img id="imgFotoP" src={user.foto ? `data:image/jpg;base64,${user.foto}` : ProfilePhoto} />
         <input
@@ -186,9 +186,11 @@ export default function Profile() {
         >
           Alterar senha
         </button>
-        <div id="linhaP"></div>
+        <div className="linha"></div>
         <button className="btnGenericoP">Ver carrinho</button>
+        <div className="divUltimo">
         <button className="btnGenericoP">Ver pedidos</button>
+        </div>
       </div>
 
       <Footer />

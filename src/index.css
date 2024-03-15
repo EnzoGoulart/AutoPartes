@@ -3,7 +3,7 @@
 }
 
 body{
-  background-color: #D2D2D2;
+  background-color: #d2d2d2;
 }
 
 button{
@@ -34,3 +34,53 @@ i:hover{
   color: var(--Background);
   transform: translateY(-2px);
 } 
+
+/**/
+/*CSS padrões facilitadores*/
+ 
+/*Main com height indefinida que atende aos padrões*/
+.mainRolagem {
+  background-color: var(--Theme);
+  width: 95%;
+  border-radius: 12px;
+  margin: 10px auto 60px auto;
+} 
+
+/*Aumentar a distancia do ultimo elemento com o bottom da div mainRolagem*/
+.divUltimo { 
+  margin: 0px auto 25px auto ;
+  height: 70px;
+}
+
+.linha {
+  width: 80%;
+  height: 2px;
+  border-top: 2px solid black; 
+  opacity: 0.30;
+  margin: auto;
+}
+
+.linha2 {
+  width: 60%;
+  height: 2px;
+  border-top: 2px solid black; 
+  opacity: 0.30;
+  margin: auto;
+}
+
+.linha3 {
+  width: 40%;
+  height: 2px;
+  border-top: 2px solid black; 
+  opacity: 0.30;
+  margin: auto;
+}
+
+.mainDicas {
+  width: 85%;
+  max-width: 500px;
+  text-align: left;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: auto;
+  padding: 25px 0px;
+}

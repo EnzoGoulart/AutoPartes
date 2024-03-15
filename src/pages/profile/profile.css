@@ -61,11 +61,4 @@
     color: var(--Theme);  
     display: block;
 } 
-
-#linhaP {
-    width: 80%;
-    height: 2px;
-    border-top: 2px solid black; 
-    opacity: 0.30;
-    margin: auto;
-}
+  
