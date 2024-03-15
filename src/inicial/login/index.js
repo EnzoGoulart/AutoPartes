@@ -25,6 +25,7 @@ export default function Login() {
         const data = await response.json();
         if (data.login == true) {
           setUser({
+            ...user,
             nome: data.nome,
             senha,
             email,

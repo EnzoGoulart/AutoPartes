@@ -6,6 +6,7 @@ export const ContextProvider = ({ children }) => {
     nome: null, 
     email: null,
     senha: null, 
+    foto: undefined,
   });
   let id = localStorage.getItem("idPost");
  

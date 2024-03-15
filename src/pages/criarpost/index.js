@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/context";
 import Plus from "../../imagens/plus.png";
 import { toast } from "react-toastify";
-import { retornaCategorias, retornaEstados } from "../../functions/return";
+import { retornaCategorias, retornaEstados, retornaFretes } from "../../functions/return";
 import Loading from "../../components/loading";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,13 +15,16 @@ export default function CriarPost() {
   const navigate = useNavigate();
   const [titlePost, setTitlePost] = useState("");
   const [corPost, setCorPost] = useState("");
+  const [skuPost, setSkuPost] = useState('');
   const [loading, setLoading] = useState(true);
   const [descriPost, setDescriPost] = useState("");
   const [images, setImages] = useState([]);
-  const [catSel, setCatSel] = useState('');
-  const [conSel, setConSel] = useState('');
+  const [catSel, setCatSel] = useState(2);
+  const [conSel, setConSel] = useState(1);
+  const [freSel, setFreSel] = useState(1);
   const [categorias, setCategorias] = useState([]);
   const [estados, setEstados] = useState([]);
+  const [fretes, setFretes] = useState([]);
   const { user, setUser } = useContext(Context);
 
   useEffect(() => {
@@ -31,6 +34,7 @@ export default function CriarPost() {
       selCat.shift();
       setCategorias(selCat);
       setEstados(await retornaEstados());
+      setFretes(await retornaFretes());
       setLoading(false);
     }
   }, []);
@@ -52,7 +56,16 @@ export default function CriarPost() {
     setImages(newImages);
   }
 
-  async function cadastrarPost() {
+  function validarSKU(sku) {   
+    const regex = /^[A-Z0-9-]+$/;
+    if (!regex.test(sku) || sku.length !== 8) {
+      return false; 
+    } 
+
+    return true;
+  }
+
+  async function cadastrarPost() {  
     if (images.length == 0) {
       return toast.error("Nenhuma imagem cadastrada!");
     } else if (images.length > 4) {
@@ -70,10 +83,12 @@ export default function CriarPost() {
       return toast.error("Sem cores cadastradas!");
     } else if (corPost.length > 90) {
       return toast.error("Campo cor excedeu o limite de caracteres!");
+    } else if(!validarSKU(skuPost) && skuPost != "") {
+      return toast.error("SKU inválido!")
     }
-
-    try{  
-      const response = await fetch("http://localhost:3001/api/alte", {
+    try{   
+      setLoading(true)
+      const response = await fetch("http://localhost:3001/api/createpostitem", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,16 +100,23 @@ export default function CriarPost() {
           titlePost,
           descriPost,
           corPost,
-          corPost,
-          corPost,
-          corPost,
+          skuPost,
+          catSel,
+          conSel, 
+          freSel,
         }),
       });
+
+      if(response.ok) { 
+        navigate('/meusposts')
+        return toast.success("Post criado!"); 
+      }
     } catch(e) {
       toast.error("Erro inesperado!");
       console.log(e)
+    } finally{
+      setLoading(false)
     }
-    return toast.success("suceso");
   }
 
   if (loading) {
@@ -210,16 +232,29 @@ export default function CriarPost() {
           onChange={(e) => setCorPost(e.target.value)}
         />
 
+        <p className="lblTxtCP">SKU (opcional)</p>
+        <textarea
+          className="inputCP"
+          value={skuPost}
+          onChange={(e) => setSkuPost(e.target.value)}
+        />
+
         <p className="lblDesCP">Categoria</p>
         <select className="selCP" id="selectCategoriaCP" onChange={e=>setCatSel(e.target.value)}>
           {categorias.map((cat) => (
-            <option key={cat.id}>{cat.descri}</option>
+            <option value={cat.id} key={cat.id}>{cat.descri}</option>
           ))}
         </select>
         <p className="lblDesCP">Condição</p>
         <select className="selCP" id="selectCondicaoCP" onChange={e=>setConSel(e.target.value)}>
           {estados.map((cat) => (
-            <option key={cat.id}>{cat.descri}</option>
+            <option value={cat.id} key={cat.id}>{cat.descri}</option>
+          ))}
+        </select>
+        <p className="lblDesCP">Frete</p>
+        <select className="selCP" id="selectCondicaoCP" onChange={e=>setFreSel(e.target.value)}>
+          {fretes.map((cat) => ( 
+            <option value={cat.id} key={cat.id}>{cat.descri}</option> 
           ))}
         </select>
         <div id="divBtnCadCP">

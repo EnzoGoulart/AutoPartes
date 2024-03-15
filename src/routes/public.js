@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../context/context";
 
 export default function Public({ children }) {
-  const { setUser } = useContext(Context);
+  const { user, setUser } = useContext(Context);
   const navigate = useNavigate();
   const [returnFun, setReturnFun] = useState(0);
 
@@ -30,6 +30,7 @@ export default function Public({ children }) {
 
             if (data.login) {
               setUser({
+                ...user,
                 nome: session.nome,
                 senha: data.senha,
                 email: session.email,

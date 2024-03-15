@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { getCookie } from "../functions/cookies";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../context/context";
+import { retornaImagem } from "../functions/return";
 
 export default function Private({ children }) {
-  const { setUser } = useContext(Context);
+  const { user, setUser } = useContext(Context);
   const navigate = useNavigate();
   const [returnFun, setReturnFun] = useState(null);
 
@@ -28,8 +29,10 @@ export default function Private({ children }) {
           if (response.ok) {
             const data = await response.json();
 
-            if (data.login) {
+            if (data.login) { 
+              
               setUser({
+                ...user,
                 nome: session.nome,
                 senha: data.senha,
                 email: session.email,
