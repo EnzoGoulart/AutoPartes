@@ -1,20 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { getCookie } from "../functions/cookies";
 import { useContext, useEffect, useState } from "react";
-import { Context } from "../context/context";
-import { retornaImagem } from "../functions/return";
+import { Context } from "../context/context"; 
 
 export default function Private({ children }) {
   const { user, setUser } = useContext(Context);
   const navigate = useNavigate();
   const [returnFun, setReturnFun] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     let session = getCookie("session");
-    if (session) {
+    if (session) { 
       session = JSON.parse(session); 
       const fetchData = async () => {
-        try {
+        try { 
           const response = await fetch(
             "http://localhost:3001/api/verificarLogin",
             {
@@ -24,19 +23,19 @@ export default function Private({ children }) {
               },
               body: JSON.stringify({ email: session.email, nome: session.nome, senha: session.senha }),
             }
-          );
+          ); 
+          if (response.ok) { 
+            const data = await response.json(); 
 
-          if (response.ok) {
-            const data = await response.json();
-
-            if (data.login) { 
+            if (data.login) {   
               
               setUser({
                 ...user,
+                id: session.id,
                 nome: session.nome,
                 senha: data.senha,
                 email: session.email,
-              });
+              }); 
               setReturnFun(true);
             } else {
               setReturnFun(false);
@@ -59,10 +58,10 @@ export default function Private({ children }) {
   useEffect(() => {
     if (returnFun !== null) {
       if (!returnFun) {
-        navigate("/home");
-      }
+        navigate("/");
+      }  
     }
-  }, [returnFun, navigate]);
+  }, []);
 
   return returnFun === true ? children : null;
 }

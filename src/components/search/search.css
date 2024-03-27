@@ -1,0 +1,31 @@
+#search{
+    display: flex;
+    height: 40px;
+    background-color: var(--SecondaryLess);
+    align-items: center;  
+    justify-content: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;  
+}
+
+#divSearchS{
+    display: flex;
+    align-items: center;  
+    justify-content: center; 
+    width: 80%;
+    justify-content: center;
+}
+
+#inputS {
+    padding: 5px 15px 5px 15px;
+    height: 15px; 
+    border-radius: 12px;
+    width: calc(75% - 30px); 
+    max-width: 650px;  
+}
+
+#iconSearchS{
+    color: var(--Theme);
+    font-size: 18px;  
+    padding-left: 30px;  
+}

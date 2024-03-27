@@ -24,7 +24,7 @@ export default function Public({ children }) {
               body: JSON.stringify({ email: session.email, nome: session.nome, senha: session.senha }),
             }
           );
-
+ 
           if (response.ok) {
             const data = await response.json();
 

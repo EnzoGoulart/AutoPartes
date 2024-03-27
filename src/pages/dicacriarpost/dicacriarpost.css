@@ -1,9 +1,12 @@
 .titleDCP {
+  color: var(--Secondary);
+  font-weight: bold;
   text-align: center;
   padding: 0px 0px 15px 0px;
 }
 
 .subtitleDCP {
+  color: var(--Secondary);
   padding: 10px 0px;
   font-weight: bold;
   font-size: 20px;
@@ -15,6 +18,7 @@
 }
 
 .txtBoldDCP {
+  color: var(--Secondary);
   font-weight: bold;
 }
 
@@ -36,6 +40,8 @@
 }
 
 .finalDCP {
+  font-weight: bold;
+  color: var(--Secondary);
   text-align: center;
   padding: 15px 0px;
 }

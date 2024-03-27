@@ -1,0 +1,41 @@
+.h1SL {
+    padding: 3px 0px 3px 12%;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+.divItensSL {
+    width: 95%;
+    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.itemSL {
+    flex: none;
+    background-color: var(--Theme);
+    width: 140px;
+    height: 240px;
+}
+
+.imgSL {
+    width: 100%;
+    height: 140px;
+    object-fit: cover; 
+}
+
+.divRankSL {
+    position: absolute;
+    background-color: var(--Secondary);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--Theme);
+    border-radius: 50%;
+    margin: 5px;
+}
+
+/*calc(100vw * 0.49 * 0.90)*/

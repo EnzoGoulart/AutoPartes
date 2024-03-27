@@ -5,51 +5,61 @@ import { Context } from "../../context/context";
 import "./profile.css";
 import ProfilePhoto from "../../imagens/profilephoto.png";
 import { toast } from "react-toastify";
-import { setSessionCookie } from "../../functions/cookies";
+import { getCookie, setSessionCookie } from "../../functions/cookies";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../components/loading/index"; 
+import Loading from "../../components/loading/index";
 
 export default function Profile() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(Context);
   const [novoNome, setNovoNome] = useState(user.nome);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const [emailBloqueado, setEmailBloqueado] = useState("");
+
+  const deslogarUser = () => { 
+    setSessionCookie("session", '', 0)
+    setUser({
+      id: null,
+      nome: null, 
+      email: null,
+      senha: null, 
+      foto: undefined,
+    }) 
+    navigate('/')
+  }
 
   const handleUploadButtonClick = () => {
     document.getElementById("inputFotoP").click();
   };
 
-  
   const carregarFoto = async () => {
-    if (!user.foto) {
-      try {
-        const response = await fetch('http://localhost:3001/api/retornaimagem', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email: user.email }),
-        });
+    try {
+      const response = await fetch("http://localhost:3001/api/retornaimagem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: user.email }),
+      });
 
-        if (response.ok) {
-          const imagemBase64 = await response.text();
-          setUser({ ...user, foto: imagemBase64 });
-        } else {
-          throw new Error(response.error);
-        }
-      } catch (error) {
-        console.error('Erro de rede:', error);
-      } finally {
-        setLoading(false);
+      if (response.ok) {
+        const imagemBase64 = await response.text();
+        setUser({ ...user, foto: imagemBase64 });
+      } else {
+        throw new Error(response.error);
       }
+    } catch (error) {
+      console.error("Erro de rede:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  useEffect(() => { 
-    carregarFoto();
+  useEffect(() => {
+    if (!user.foto) {
+      carregarFoto();
+    }
   }, []);
-
 
   useEffect(() => {
     if (user.email && user.email.length > 7) {
@@ -74,8 +84,8 @@ export default function Profile() {
           },
           body: JSON.stringify({ email: user.email, novoNome }),
         });
-
-        if (response.ok) {
+        console.log(response.ok)
+        if (response.ok) { 
           setUser({
             ...user,
             nome: novoNome,
@@ -84,9 +94,10 @@ export default function Profile() {
           setSessionCookie(
             "session",
             JSON.stringify({
-              email: user.email,
-              nome: novoNome,
               senha: user.senha,
+              email: user.email,
+              id: user.id,
+              nome: novoNome, 
             }),
             30
           );
@@ -101,13 +112,13 @@ export default function Profile() {
     }
   }
 
-  async function gravarFoto(e) { 
-    const file = e.target.files[0];
+  async function gravarFoto(e) {
+    const file = e.target.files[0]; 
 
     try {
       const formData = new FormData();
-      formData.append("file", file); // Adiciona o arquivo ao FormData
-      formData.append("email", user.email); // Adiciona o email ao FormData 
+      formData.append("file", file); 
+      formData.append("email", user.email); 
 
       const response = await fetch(
         "http://localhost:3001/api/mudarfotoperfil",
@@ -117,27 +128,13 @@ export default function Profile() {
         }
       );
 
-      if (response.ok) {   
-          const response = await fetch('http://localhost:3001/api/retornaimagem', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: user.email }),
-          });
-  
-          if (response.ok) {
-            const imagemBase64 = await response.text();
-            setUser({ ...user, foto: imagemBase64 });
-            toast.success("Foto alterada!")
-          } else {
-            throw new Error(response.error);
-          } 
-      } 
+      if (response.ok) {
+        carregarFoto()
+      }
     } catch (error) {
       console.log(error);
       toast.error("Erro ao enviar a requisição.");
-    } 
+    }
   }
 
   if (loading) {
@@ -149,10 +146,13 @@ export default function Profile() {
   }
   return (
     <div id="container">
-      <Header /> 
+      <Header />
       <div className="mainRolagem">
         <p id="h1P">Perfil</p>
-        <img id="imgFotoP" src={user.foto ? `data:image/jpg;base64,${user.foto}` : ProfilePhoto} />
+        <img
+          id="imgFotoP"
+          src={user.foto ? `data:image/jpg;base64,${user.foto}` : ProfilePhoto}
+        />
         <input
           id="inputFotoP"
           type="file"
@@ -186,10 +186,16 @@ export default function Profile() {
         >
           Alterar senha
         </button>
+        <button
+          className="btnDangerP"
+          onClick={() => deslogarUser()}
+        >
+          Deslogar
+        </button>
         <div className="linha"></div>
-        <button className="btnGenericoP">Ver carrinho</button>
+        <button className="btnGenericoP" onClick={() => navigate("/cart")}>Ver carrinho</button>
         <div className="divUltimo">
-        <button className="btnGenericoP">Ver pedidos</button>
+          <button className="btnGenericoP">Ver pedidos</button>
         </div>
       </div>
 

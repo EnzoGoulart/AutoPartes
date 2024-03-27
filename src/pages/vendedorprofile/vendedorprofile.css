@@ -1,0 +1,44 @@
+.divSellerVP {
+    width: 95%;
+    display: flex;
+}
+
+.divSellerVP img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 25px 15px;
+}
+
+.divSellerVP div p:not(:first-child) {
+    font-size: 14px;
+}
+
+.divSellerVP p:first-child {
+    font-weight: bold;
+    padding: 20px 0px 10px 0px;
+    line-break: anywhere;
+}
+
+.txtAnunVP {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.anunsVP {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.itemVP {
+    width: calc(
+        50% - 10px
+    );  
+    margin: 5px;  
+}
+
+.itemVP img{
+    width: calc(100vw / 2 - 20px); 
+    height: calc(100vw / 2 - 20px);
+}
+ 

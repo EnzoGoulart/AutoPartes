@@ -137,10 +137,11 @@ export default function Cadastro() {
             nome,
             senha,
             email,
+            id: data.id
           });
           setSessionCookie(
             "session",
-            JSON.stringify({ email, nome, senha: data.senha }),
+            JSON.stringify({ id: data.id, email, nome, senha: data.senha }),
             30
           );
           navigate("/home");

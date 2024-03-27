@@ -14,6 +14,12 @@ export default function DicaCriarPost() {
           <div className="linha"></div>
           <p className="subtitleDCP">Fotos</p>
           <p className="textoDCP">
+            <span className="txtBoldDCP">Formato</span>: Envie apenas fotos
+            quadradas e de boa qualidade, para evitar deformações de altura e
+            largura que causam más impressões ao comprador e não mostrarão o
+            formato exato do produto.
+          </p>
+          <p className="textoDCP">
             <span className="txtBoldDCP">Boa iluminação</span>: Certifique-se de
             ter uma iluminação adequada para destacar o produto. Evite sombras
             densas ou luzes muito fortes que possam distorcer a cor e os
@@ -105,7 +111,7 @@ export default function DicaCriarPost() {
           </p>
 
           <div className="paddingDCP"></div>
-          <div className="linha3"></div> 
+          <div className="linha3"></div>
           <p className="finalDCP">
             Agora você está apto para fazer um ótimo anúncio!
           </p>

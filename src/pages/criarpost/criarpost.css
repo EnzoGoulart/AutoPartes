@@ -1,18 +1,6 @@
 .divDebugBtnCP{
     padding-top: 15px; 
-}
-
-.btnHintCP {  
-    margin: 0px 0px 0px 7%;
-    width: 220px;
-    height: 40px;
-    border-radius: 12px;
-    background-color: var(--Secondary);
-    font-size: 14px;
-    color: var(--Theme);
-    display: block;
-    opacity: 0.9;
-  }
+} 
 
 .divImgsCP { 
     width: 78%;

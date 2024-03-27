@@ -1,0 +1,280 @@
+#headerPRO {
+    font-size: 22px;
+    border-radius: 50%;
+    background-color: var(--Secondary);
+    color: var(--Theme);
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counterImgsPRO {
+    font-size: 14px;
+    border-radius: 50%;
+    background-color: var(--Secondary);
+    color: var(--Theme);
+    position: absolute;
+    top: 89vw;
+    left: 89vw;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carouselPRO {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin: 0px auto 10px auto;
+}
+
+.itemPRO {
+    flex: none;
+    background-color: var(--Theme);
+}
+
+.imageCPRO {
+    width: 100vw;
+    height: 100vw;
+}
+
+.titlePRO {
+    width: 90%;
+    margin: auto;
+    font-size: 14px;
+    padding: 15px 0px 10px 0px;
+}
+
+.infosPropPRO {
+    display: flex;
+    margin: 10px 0px;
+    align-items: center;
+}
+
+.freteGratisPRO {
+    color: var(---Green);
+    width: 100%;
+}
+
+.infosItemPRO{
+    margin: 10px auto;
+    width: 90%;
+}
+.pricePRO {
+    margin-left: 6%;
+    width: 100%;
+}
+
+.fretePRO { 
+    width: 100%;
+    padding-left: -10%;
+}
+
+.starsPRO { 
+    margin-left: 6%;
+    width: 100%;
+}
+
+.vendasPRO { 
+    width: 100%;
+}
+.starsClaPRO {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.divisoriaPRO {
+    opacity: 0.2;
+    margin: 0px 0px 0px -20px;
+    width: 20%;
+}
+ 
+
+.descriTxtPRO {
+    margin: 10px 0px 10px 6%; 
+    font-size: 18px; 
+}
+
+.descriPRO {
+    font-size: 16px;
+    width: calc(90% - 40px);
+    margin: 0px auto 15px auto;
+    background-color: #fff;
+    padding: 20px;
+    font-family: 'Inter';
+    border-radius: 12px;
+    line-break: anywhere;
+}
+
+.vendedorTxtPRO {
+    padding-left: 6%;
+    margin: 10px 0px;
+    font-size: 18px;
+}
+
+.sellerProfilePRO { 
+    width: 90%;
+    margin: 0px auto 10px auto; 
+    display: flex;
+}
+
+.sellerProfilePRO p {
+    padding: 1px 0px;
+}
+
+.sellerProfilePRO img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 5px 15px 15px 15px;
+} 
+
+.rateSellerPRO{ 
+    font-weight: bold;
+    padding: 10px 0px;
+}
+
+.divInfosSellerPro p:not(:first-child){   
+    font-size: 14px;
+} 
+
+.semAvaliacoesSellerPRO {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+.starsSellerPRO {
+    display: flex;
+    position: relative;
+    left: -10px;
+    font-weight: bold;
+    margin-left: 10px;
+} 
+ 
+.ratePRO {
+    width: 90%;
+    margin: auto; 
+    display: flex;
+}
+
+.ratePRO:last-child {
+    margin-bottom: 50px;
+}
+
+.imgProfileUserPRO {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px; 
+} 
+
+.claCliUserPRO{
+    font-size: 12px;
+    padding: 15px 0px 5px 0px ;
+}
+ 
+.claImgsPRO {
+    margin: 10px; 
+    display: flex;
+    justify-content: left;
+    width: 100%;
+
+}
+
+.claImgsPRO img {
+    width: 85px;
+    height: 85px;  
+}
+
+.claImgsPRO img:not(:first-child){
+    margin-left: 10%;
+}
+
+.containerImage {
+    height: 100%;
+    width: 100%;
+    position: fixed; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.closeImage {
+    font-size: 22px;
+    border-radius: 50%;
+    background-color: var(--Secondary);
+    color: var(--Theme); 
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;  
+    top: 20%;
+    left: 90%; 
+    transform: translateX(-50%);
+}
+
+.imageContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 90vw;
+}
+
+.lastImgPRO:last-child {
+    margin-bottom: 30px;
+}
+
+.ultimoEmpty{
+    margin-bottom: -10px;
+}
+
+#footerPRO {
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    position: fixed;
+    top: 100%;
+    transform: translateY(-100%);
+    color: var(--Theme);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#footerLPRO {
+    background-color: var(--SecondaryLess);
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+#footerRPRO {
+    background-color: var(--Secondary);
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+ 
+.cancelaUltimoEmpty {
+    margin-bottom: -55px;
+}

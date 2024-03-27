@@ -1,12 +1,8 @@
-#footer {
-    display: flex;
+#footer { 
     height: 50px;
     width: 100%;
     background-color: var(--Secondary);
-    align-items: center;
-    justify-content: space-between;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;  
+    align-items: center; 
     position: fixed;
     top: 100%;  
     transform: translateY(-100%);

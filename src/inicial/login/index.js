@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { toast } from "react-toastify";
 import { Context } from "../../context/context";
-import { setSessionCookie } from "../../functions/cookies";
+import { getCookie, setSessionCookie } from "../../functions/cookies";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -27,14 +27,15 @@ export default function Login() {
           setUser({
             ...user,
             nome: data.nome,
-            senha,
+            senha: data.senha,
             email,
+            id: data.id,
           });
           setSessionCookie(
             "session",
-            JSON.stringify({ email, nome: data.nome, senha: data.senha }),
+            JSON.stringify({ id: data.id, email, nome: data.nome, senha: data.senha }),
             30
-          );
+          ); 
           navigate("/home");
         } else if (data.login == false && data.email == true) {
           toast.error("Senha inválida!");

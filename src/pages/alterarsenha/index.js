@@ -13,7 +13,7 @@ import {
   Forca5,
   TxtDivSenha,
 } from "../../inicial/cadastro/styledCadastro";
-import { setSessionCookie } from "../../functions/cookies";
+import { getCookie, setSessionCookie } from "../../functions/cookies";
 
 export default function AlterarSenha() {
   const navigate = useNavigate();
@@ -146,9 +146,12 @@ export default function AlterarSenha() {
             ...user,
             senha: data.senhaNova, 
           });
+
+          let cookie = JSON.parse(getCookie("session"))
+          cookie = {...cookie, senha: data.senhaNova}
           setSessionCookie(
             "session",
-            JSON.stringify({ email: user.email, nome: user.nome, senha: data.senhaNova }),
+            JSON.stringify(cookie),
             30
           );
           navigate("/profile");

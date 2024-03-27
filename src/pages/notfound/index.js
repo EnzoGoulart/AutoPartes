@@ -18,6 +18,11 @@ export default function NotFound() {
               Cadastre-se
             </Link> 
           </button> 
+          <button className="btnGenerico404">
+            <Link id="txtLink404" to="/home">
+              Início
+            </Link> 
+          </button> 
         </div>
       </div>
     </div>

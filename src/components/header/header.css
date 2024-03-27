@@ -3,9 +3,7 @@
     height: 50px;
     background-color: var(--Secondary);
     align-items: center;
-    justify-content: space-between;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px; 
+    justify-content: space-between; 
 }
 
 #txtLogoH{

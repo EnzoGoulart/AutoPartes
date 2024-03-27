@@ -3,10 +3,14 @@ export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({
+    id: null,
     nome: null, 
     email: null,
     senha: null, 
     foto: undefined,
+    configs: {
+      getHome: 0
+    }
   });
   let id = localStorage.getItem("idPost");
  

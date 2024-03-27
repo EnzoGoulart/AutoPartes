@@ -15,6 +15,10 @@ input{
   border: none;
 }
 
+input:focus {
+  outline: none;
+}
+
 p, Link, textarea{
   text-decoration: none;
   font-family: 'Inter';
@@ -46,6 +50,10 @@ i:hover{
   margin: 10px auto 60px auto;
 } 
 
+.mainEmpty {
+  background-color: var(--Theme);
+}
+
 /*Aumentar a distancia do ultimo elemento com o bottom da div mainRolagem*/
 .divUltimo { 
   margin: 0px auto 25px auto ;
@@ -56,7 +64,7 @@ i:hover{
   width: 80%;
   height: 2px;
   border-top: 2px solid black; 
-  opacity: 0.30;
+  opacity: 0.25;
   margin: auto;
 }
 
@@ -64,7 +72,7 @@ i:hover{
   width: 60%;
   height: 2px;
   border-top: 2px solid black; 
-  opacity: 0.30;
+  opacity: 0.25;
   margin: auto;
 }
 
@@ -72,7 +80,7 @@ i:hover{
   width: 40%;
   height: 2px;
   border-top: 2px solid black; 
-  opacity: 0.30;
+  opacity: 0.25;
   margin: auto;
 }
 
@@ -83,4 +91,43 @@ i:hover{
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: auto;
   padding: 25px 0px;
+}
+
+/* Button area */
+.btnGenericoP {
+  margin: 15px auto; 
+  width: 150px;
+  height: 40px; 
+  border-radius: 12px;
+  background-color: var(--Secondary);
+  font-size: 16px;
+  color: var(--Theme);  
+  display: block;
+} 
+
+.btnDangerP {
+  margin: 15px auto; 
+  width: 150px;
+  height: 40px; 
+  border-radius: 12px; 
+  background-color: var(--Red);
+  font-size: 16px;
+  color: var(--Theme);  
+  display: block;
+} 
+
+.btnHintCP {  
+  margin: 0px 0px 0px 7%;
+  width: 250px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: var(--Secondary);
+  font-size: 14px;
+  color: var(--Theme);
+  display: block;
+  opacity: 0.9;
+}
+
+.height15 {
+  height: 15px;
 }
